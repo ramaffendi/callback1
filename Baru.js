@@ -51,9 +51,17 @@ const tableData = [
 ];
 
 const table = new Table({
-  columns: ["Name", "Email", "Nohp", "Jabatan",],
-  data: tableData
+  columns: ["Name", "Email", "Nohp", "Jabatan"],
+  data: tableData,
 });
 
 const app = document.getElementById("app");
-table.render(app);
+const loading = document.getElementById("loading");
+loading.style.display = "block";
+window.addEventListener("loading", () => {
+});
+
+setTimeout(() => {
+  loading.style.display = "none";
+  table.render(app);
+}, 2000);
